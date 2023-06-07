@@ -16,7 +16,7 @@ dynamodb = None
 def connect_dynamodb():
     global dynamodb
     dynamodb = boto3.resource('dynamodb',
-                              endpoint_url='http://localhost:8000',
+                              endpoint_url='http://localhost:4566',
                               region_name='us-east-1',
                               aws_access_key_id='anything',
                               aws_secret_access_key='anything')
@@ -67,7 +67,7 @@ def get_data(tbl_name, **item):
 def main():
     """ Main entry point of the app """
     logger.info("Start")
-    tbl_name = 'test2'
+    tbl_name = 'test3'
     connect_dynamodb()
     create_table(tbl_name)
     insert_data(tbl_name, id=1, name='Heero')
